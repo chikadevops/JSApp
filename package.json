@@ -1,0 +1,23 @@
+{
+  "name": "jsapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "hello.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chikadevops/JSApp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chikadevops/JSApp/issues"
+  },
+  "homepage": "https://github.com/chikadevops/JSApp#readme",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
