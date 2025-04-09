@@ -10,8 +10,8 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [ 14, 16 ]
-    
+        node-version: [14, 16]
+
     steps:
     - name: Checkout Code
       uses: actions/checkout@v2
@@ -28,13 +28,14 @@ jobs:
       run: npm test
 
     - name: Login to DockerHub
-      run: echo "${{ secrets.DOCKER_HUB}}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
+      run: echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
 
     - name: Build Docker image
       run: |
         IMAGE_NAME=jsapp
-        docker build -t $IMAGE_NAME:latest
+        docker build -t $IMAGE_NAME:latest .
 
     - name: Push Docker image
       run: |
-      docker push $IMAGE_NAME:latest
+        IMAGE_NAME=jsapp
+        docker push $IMAGE_NAME:latest
