@@ -4,6 +4,7 @@
   "description": "",
   "main": "hello.js",
   "scripts": {
+    "start": "node hello.js",
     "test": "jest"
   },
   "repository": {
@@ -17,6 +18,7 @@
     "url": "https://github.com/chikadevops/JSApp/issues"
   },
   "homepage": "https://github.com/chikadevops/JSApp#readme",
+  "dependencies": {},
   "devDependencies": {
     "jest": "^29.7.0"
   }

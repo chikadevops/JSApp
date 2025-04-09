@@ -26,3 +26,15 @@ jobs:
 
     - name: Run tests
       run: npm test
+
+    - name: Login to DockerHub
+      run: echo "${{ secrets.DOCKER_HUB}}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
+
+    - name: Build Docker image
+      run: |
+        IMAGE_NAME=jsapp
+        docker build -t $IMAGE_NAME:latest
+
+    - name: Push Docker image
+      run: |
+      docker push $IMAGE_NAME:latest
