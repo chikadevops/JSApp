@@ -27,7 +27,7 @@ jobs:
 
         - name: Add EC2 to Known Hosts
           run: |
-            ssh-keyscan -H $EC"_HOST >> ~/.ssh/known_hosts
+            ssh-keyscan -H $EC2_HOST >> ~/.ssh/known_hosts
         
         - name: SSH into EC2
           run: ssh $EC2_USER@$EC2_HOST
