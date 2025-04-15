@@ -31,12 +31,13 @@ jobs:
 
     - name: SSH into EC2
       run: |
-        ssh $EC2_USER@$EC2_HOST
-        echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
-        docker pull chikadev/jsapp:latest
-        docker stop jsapp-container || true
-        docker rm jsapp-container || true
-        docker run -d --name jsapp-container -p 80:3000 chikadev/jsapp:latest
+        ssh $EC2_USER@$EC2_HOST ,, 'EOF'
+            echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
+            docker pull chikadev/jsapp:latest
+            docker stop jsapp-container || true
+            docker rm jsapp-container || true
+            docker run -d --name jsapp-container -p 80:3000 chikadev/jsapp:latest
+        EOF
 
     - name: Pull Docker Image and Run Container
       run: echo "Deployment completed successfully."
