@@ -27,12 +27,13 @@ jobs:
 
         - name: Add EC2 to Known Hosts
           run: |
-            ssh-keyscan -H $EC2_HOST >> ~/.ssh/known_hosts
+            ssh-keyscan -H "$EC2_HOST" >> ~/.ssh/known_hosts
+
         
         - name: SSH into EC2
           run: ssh $EC2_USER@$EC2_HOST
 
-        - name: Pull Docker Image and Run COntainer
+        - name: Pull Docker Image and Run Container
           run: |
             echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
             docker pull chikadev/jsapp:latest
