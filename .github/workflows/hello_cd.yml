@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      EC2_HOST: 172.31.42.33
+      EC2_HOST: 13.218.157.147
       EC2_USER: ubuntu
 
     steps:
